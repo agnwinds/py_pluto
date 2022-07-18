@@ -1,0 +1,194 @@
+
+   ___  __   __  ____________   
+  / _ \/ /  / / / /_  __/ __ \ 
+ / ___/ /__/ /_/ / / / / /_/ /  
+/_/  /____/\____/ /_/  \____/   
+=============================    v. 4.4-patch2  
+
+> System:
+
+  USER:             nsh2m14
+  SYSTEM_NAME:      Darwin
+  NODE_NAME:        Nicholass-MacBook-Pro.local
+  ARCH:             x86_64
+  BYTE_ORDER:       little
+
+  - Basic data type size (Bytes):
+    o sizeof (char)     = 1
+    o sizeof (uchar)    = 1
+    o sizeof (uint16_t) = 2
+    o sizeof (short)    = 2
+    o sizeof (ushort)   = 2
+    o sizeof (int)      = 4
+    o sizeof (long)     = 8
+    o sizeof (*int)     = 8
+    o sizeof (float)    = 4
+    o sizeof (double)   = 8
+    o sizeof (*double)  = 8
+
+  - Structure data type (Bytes):
+    o sizeof (cmdLine)    = 64
+    o sizeof (Data)       = 264
+    o sizeof (Grid)       = 1024
+    o sizeof (Float_Vect) = 12
+    o sizeof (Image)      = 856
+    o sizeof (Output)     = 1768
+    o sizeof (RGB)        = 3
+    o sizeof (Runtime)    = 47048
+    o sizeof (Restart)    = 128
+    o sizeof (timeStep)   = 144
+    o sizeof (RBox)       = 112
+    o sizeof (State)      = 128
+    o sizeof (Sweep)      = 568
+
+> Local time:       Mon Jul 18 10:43:07 2022
+
+> Cmd line args:    
+
+> Header configuration:
+
+  PHYSICS:          HD
+  DIMENSIONS:       2
+  GEOMETRY:         Spherical
+  BODY_FORCE:       EXPLICIT
+  RECONSTRUCTION:   Linear TVD (Characteristic lim)
+  TIME STEPPING:    Runga-Kutta II
+  TRACERS:          0
+  VARIABLES:        4
+  ENTROPY_SWITCH:   NO
+  LOADED MODULES:
+
+  ROTATION:         NO
+  EOS:              Isothermal
+
+> Runtime configuration (pluto.ini):
+
+  +----------------------------------------------------------
+  | [Grid]
+  | 
+  | X1-grid 1 0.87 128 r 8.7 1.07
+  | X2-grid 1 0.0 96 r 1.5707963267948966 0.95
+  | X3-grid 1    0.0    1      u    1.0
+  | 
+  | [Chombo Refinement]
+  | 
+  | Levels           4
+  | Ref_ratio        2 2 2 2 2
+  | Regrid_interval  2 2 2 2 
+  | Refine_thresh    0.3
+  | Tag_buffer_size  3
+  | Block_factor     8
+  | Max_grid_size    64
+  | Fill_ratio       0.75
+  | 
+  | [Time]
+  | 
+  | CFL              0.4
+  | CFL_max_var      1.1
+  | tstop            1.0
+  | first_dt         1e-4
+  | 
+  | [Solver]
+  | 
+  | Solver         hll
+  | 
+  | [Boundary]
+  | 
+  | X1-beg        reflective
+  | X1-end        outflow
+  | X2-beg        axisymmetric
+  | X2-end        reflective
+  | X3-beg        outflow
+  | X3-end        outflow
+  | 
+  | [Static Grid Output]
+  | 
+  | uservar    21 XI T ch cc lc bc xh ch_pre cc_pre lc_pre bc_pre xh_pre ne nh gr gt gp dv_ds t M_max1 M_max2
+  | dbl        1000000000000   -1   single_file
+  | flt       -1.0  -1   single_file
+  | vtk       -1.0  -1   single_file
+  | dbl.h5    -1.0  -1
+  | flt.h5    -1.0  -1
+  | tab       -1.0  -1   
+  | ppm       -1.0  -1   
+  | png       -1.0  -1
+  | log        1000
+  | analysis  -1.0  -1
+  | 
+  | [Chombo HDF5 output]
+  | 
+  | Checkpoint_interval  -1.0  0
+  | Plot_interval         1.0  0 
+  | 
+  | [Parameters]
+  | 
+  | MU                          0.60
+  | RHO_0                       1.00e-09
+  | R_0                         8.31e+17
+  | RHO_ALPHA                   0.00
+  | CENT_MASS                   1.19e+33
+  | DISK_MDOT                   1.98e+18
+  | T_ISO                       4.00e+04
+  | L_star                      9.05e+34
+  | f_x                         0.10
+  | f_uv                        0.90
+  | T_x                         1.60e+05
+  | KRAD                        5.90e-01
+  | ALPHARAD                    -6.00e-01
+  +---------------------------------------------------------
+
+> Generating grid...
+
+  Global grid:
+  X1: [   0.8700,   8.7000],    128 point(s), 3 ghosts
+  X2: [   0.0000,   1.5708],     96 point(s), 3 ghosts
+
+  Local grid:
+  X1: [   0.8700,   8.7000],    128 point(s); 3 ghosts; Active zones = [3, 130]
+  X2: [   0.0000,   1.5708],     96 point(s); 3 ghosts; Active zones = [3, 98]
+
+> Memory allocation
+Setting up flux arrays
+> Assigning initial conditions (Startup) ...
+> Normalization Units:
+
+  [Density]:      1.000e-14 (gr/cm^3), 5.979e+09 (1/cm^3)
+  [Pressure]:     1.000e+04 (dyne/cm^2)
+  [Velocity]:     1.000e+09 (cm/s)
+  [Length]:       1.000e+09 (cm)
+  [Temperature]:  1.203e+10 X (p/rho*mu) (K)
+  [Time]:         1.000e+00 (sec), 3.171e-08 (yrs) 
+ 
+> Number of processors: 1
+> Proc size:            128 X 96
+> Writing file #0 (dbl) to disk...
+Heading off to py_rad_driv
+Arrived in read_py_fluxes IBEG=3 JBEG=3
+Reading in fluxes from python
+We have 36 angular bins for flux
+Reading in X fluxes
+declared an array of size 1 102 134
+Read 36 fluxes for 12288 cells
+Reading in Y fluxes
+Read 36 fluxes for 12288 cells
+Reading in Z fluxes
+Read 36 fluxes for 12288 cells
+Using k=5.900000e-01 alpha=-6.000000e-01 for all cells
+Not using accelerations from python
+Read fluxes
+Off to read py iso temp
+First time round so setting temperatures to fixed T
+> Starting computation... 
+
+step:0; t = 0.0000e+00; dt = 1.0000e-04; 0.0 %
+Setting up dvds calculation arrays
+Set up arrays
+Finished creating the dvds arrays
+        [Mach = 0.004437]
+> Writing file #1 (dbl) to disk...
+
+> Total allocated memory   44.85 Mb
+> Elapsed time              0d:0h:0m:46s
+> Average time/step         1.27e-01  (sec)  
+> Local time                Mon Jul 18 10:43:53 2022
+> Done
