@@ -142,8 +142,8 @@ else:
         except:
             print ("Cannot restart")
             exit(0)
-        print ("Last run finished at ",pp.pload(istart).SimTime)
-        time=pp.pload(istart).SimTime+dt
+        print ("Last run finished at ",pp.pload.pload(istart).SimTime)
+        time=pp.pload.pload(istart).SimTime+dt
     else:
         istart=0
         time=t0

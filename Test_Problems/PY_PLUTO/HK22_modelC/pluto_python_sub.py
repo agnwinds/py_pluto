@@ -120,7 +120,7 @@ def pluto_input_file(tlim,data):
 #convert a pluto dbl file into a file that can be read in by python.    
     
 def pluto2py_rtheta(ifile):
-    D=pp.pload(ifile)
+    D=pp.pload.pload(ifile)
     UNIT_DENSITY,UNIT_LENGTH,UNIT_VELOCITY=get_units('definitions.h')
 
     #Extract the bits of the pluto file we will be needing - and scale accordinglt
@@ -371,7 +371,7 @@ def python_input_file(fname,data,cycles=2):
     
 def pluto2py(ifile):
 
-    D=pp.pload(ifile)
+    D=pp.pload.pload(ifile)
 
     # We need the definitions file - so we know the conversion factors.
 
@@ -477,7 +477,7 @@ def accel_calc(ifile,radforce=0):
 
     py_driving=ascii.read("%08d"%(ifile)+"_py_driving.dat")
         
-    D=pp.pload(ifile)
+    D=pp.pload.pload(ifile)
 
     # We need the definitions file - so we know the conversion factors.
 
@@ -560,7 +560,7 @@ def pre_calc(ifile,radforce=0):
     max_accel_change=0.9
 
     heatcool=ascii.read("%08d"%(ifile)+"_py_heatcool.dat")
-    D=pp.pload(ifile)
+    D=pp.pload.pload(ifile)
 
         
     # We need the definitions file - so we know the conversion factors.
