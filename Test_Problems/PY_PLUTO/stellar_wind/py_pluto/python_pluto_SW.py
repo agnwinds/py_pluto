@@ -108,14 +108,14 @@ else:
         except:
             print ("Cannot restart")
             exit(0)
-        print ("Last run finished at ",pp.pload(istart).SimTime)
+        print ("Last run finished at ",pp.pload.pload(istart).SimTime)
         if dt>0:
-            time=pp.pload(istart).SimTime+dt
+            time=pp.pload.pload(istart).SimTime+dt
             cycles=-1
         else:
             time=1e99
             cmdline="tail -1 dbl.out"
-            if pp.pload(istart).NStep<ncycles1:
+            if pp.pload.pload(istart).NStep<ncycles1:
                 cycles=int(subprocess.check_output(cmdline,shell=True).split()[3])+dcycles1
             else:
                 cycles=int(subprocess.check_output(cmdline,shell=True).split()[3])+dcycles2
@@ -154,7 +154,7 @@ for i in range(istart,10000):
         cycles=0
     else:
         cmdline="tail -1 dbl.out"
-        if pp.pload(ifile).NStep<ncycles1:
+        if pp.pload.pload(ifile).NStep<ncycles1:
             cycles=int(subprocess.check_output(cmdline,shell=True).split()[3])+dcycles1
         else:
             cycles=int(subprocess.check_output(cmdline,shell=True).split()[3])+dcycles2

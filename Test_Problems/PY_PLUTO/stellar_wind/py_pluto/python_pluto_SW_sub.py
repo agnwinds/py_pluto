@@ -97,7 +97,7 @@ def pluto_input_file(tlim,clim,data):
 
 def pluto2py_1d(ifile,data):
     
-    D=pp.pload(ifile)
+    D=pp.pload.pload(ifile)
     
     UNIT_DENSITY,UNIT_LENGTH,UNIT_VELOCITY=get_units('definitions.h')
     
@@ -288,7 +288,7 @@ def driving_calc(ifile,data):
 
     max_accel_change=0.9
 
-    D=pp.pload(ifile)
+    D=pp.pload.pload(ifile)
 
     flux=ascii.read("py_driving.dat")
     M=ascii.read("M_data.dat")
